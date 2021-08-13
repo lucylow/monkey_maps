@@ -1,85 +1,91 @@
-class Logo extends React.Component {
-  render() {
-    return /*#__PURE__*/(
-      React.createElement("div", null));
 
 
-  }}
+class Logo extends React.Component{
+  render(){
+    return(
+      <div>
+    </div>
+    )
+}
+}
 
+class App extends React.Component{
+  render(){
+    return(
+      <div>
+        <Logo src=""/>
+        <div className="main">
+          <div className="contents">
+<h1 class="center">Monkey Maps DocuSign</h1> 
+          <Terms desc="Please read terms of Docusign Monkey Maps below. Signatures along with inputs and versions of the maps are linked to the final map and stored as part of the larger DocuSign metadata. All the feedback, drawings, and notes should be documented and traced along with different versions of the maps through the Monkey Maps envelope:  "/>
+            
+            
+            
+            
+            <Footer desc="To complete partnership agreement, fill in the following fields:"/>
+          </div>
+        </div>
+        </div>
+    )
+  }       
+        }
 
-class App extends React.Component {
-  render() {
-    return /*#__PURE__*/(
-      React.createElement("div", null, /*#__PURE__*/
-      React.createElement(Logo, { src: "" }), /*#__PURE__*/
-      React.createElement("div", { className: "main" }, /*#__PURE__*/
-      React.createElement("div", { className: "contents" }, /*#__PURE__*/
-      React.createElement("h1", { class: "center" }, "Monkey Maps DocuSign"), /*#__PURE__*/
-      React.createElement(Terms, { desc: "Please read terms of Docusign Monkey Maps below. Signatures along with inputs and versions of the maps are linked to the final map and stored as part of the larger DocuSign metadata.\xA0All the feedback, drawings, and notes should be documented and traced along with different versions of the maps through the Monkey Maps envelope:\xA0 " }), /*#__PURE__*/
-      React.createElement(Footer, { desc: "To complete partnership agreement, fill in the following fields:" })))));
+class Header extends React.Component{
+  render(){
+    return(
+    <div className="head">
+        <p>{this.props.name}</p>
+        <p>{this.props.desc}</p>
+        <p>{this.props.tag}</p>
+        <input type="text" className="textbox" placeholder="Enter your institution name"/>
+        <div>
+        <select className="dropdown">
+          <option value="Institution type">Insitution type</option>
+                    <option value="Institution type">Insitution type2</option>
+  </select>
+          
+          
+          <div className="footer">
+        <p>{this.props.desc}</p>
+        <div>
+        <input type="text" className="textbox" placeholder="Enter representative name"/>
+        </div>
+        <div>
+         <input type="text" className="textbox" placeholder="Position"/>
+        </div>
+        </div>  
+          </div>
+        </div>
+        )
+  }
+}
 
+class Terms extends React.Component{
+  render(){
+    return(
+      <div className="terms">
+        <p className="terms-desc">{this.props.desc}</p>
+       <div class="iframe-container">
+  <iframe src="https://na3.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=9ab61c38-03ec-4268-b29f-ac6eb57c5a48&env=na3-eu1&acct=5d9fc255-3cf4-4a31-b813-43dc7af76de5" allowfullscreen></iframe>
+</div> 
+      </div>
+    )
+  }
+}
 
+class Footer extends React.Component{
+  render(){
+    return(
+    <div className="footer">
+<br>
+        </br>
+        <br>
+        </br>
+        </div>)
+  }
+}
 
-
-  }}
-
-
-class Header extends React.Component {
-  render() {
-    return /*#__PURE__*/(
-      React.createElement("div", { className: "head" }, /*#__PURE__*/
-      React.createElement("p", null, this.props.name), /*#__PURE__*/
-      React.createElement("p", null, this.props.desc), /*#__PURE__*/
-      React.createElement("p", null, this.props.tag), /*#__PURE__*/
-      React.createElement("input", { type: "text", className: "textbox", placeholder: "Enter your institution name" }), /*#__PURE__*/
-      React.createElement("div", null, /*#__PURE__*/
-      React.createElement("select", { className: "dropdown" }, /*#__PURE__*/
-      React.createElement("option", { value: "Institution type" }, "Insitution type"), /*#__PURE__*/
-      React.createElement("option", { value: "Institution type" }, "Insitution type2")), /*#__PURE__*/
-
-
-
-      React.createElement("div", { className: "footer" }, /*#__PURE__*/
-      React.createElement("p", null, this.props.desc), /*#__PURE__*/
-      React.createElement("div", null, /*#__PURE__*/
-      React.createElement("input", { type: "text", className: "textbox", placeholder: "Enter representative name" })), /*#__PURE__*/
-
-      React.createElement("div", null, /*#__PURE__*/
-      React.createElement("input", { type: "text", className: "textbox", placeholder: "Position" }))))));
-
-
-
-
-
-  }}
-
-
-class Terms extends React.Component {
-  render() {
-    return /*#__PURE__*/(
-      React.createElement("div", { className: "terms" }, /*#__PURE__*/
-      React.createElement("p", { className: "terms-desc" }, this.props.desc), /*#__PURE__*/
-      React.createElement("div", { class: "iframe-container" }, /*#__PURE__*/
-      React.createElement("iframe", { src: "https://na3.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=9ab61c38-03ec-4268-b29f-ac6eb57c5a48&env=na3-eu1&acct=5d9fc255-3cf4-4a31-b813-43dc7af76de5", allowfullscreen: true }))));
-
-
-
-  }}
-
-
-class Footer extends React.Component {
-  render() {
-    return /*#__PURE__*/(
-      React.createElement("div", { className: "footer" }, /*#__PURE__*/
-      React.createElement("br", null), /*#__PURE__*/
-
-      React.createElement("br", null)));
-
-
-  }}
-
-
-ReactDOM.render( /*#__PURE__*/React.createElement(App, null), document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
 
 
 var dbGlobals = {}; // Store all indexedDB related objects in a global object called "dbGlobals".
@@ -94,7 +100,7 @@ dbGlobals.empty = true; // Indicates whether or not there's one or more records 
 // ---------------------------------------------------------------------------------------------------
 
 function requiredFeaturesSupported() {
-  switch (window.location.protocol) {// To work, IndexedDB pages must be served via the http or https protocol (or, for apps in the new Windows UI, the ms-wwa or ms-wwa-web protocols).
+  switch (window.location.protocol) { // To work, IndexedDB pages must be served via the http or https protocol (or, for apps in the new Windows UI, the ms-wwa or ms-wwa-web protocols).
     case "http:":
       break;
     case "https:":
@@ -105,8 +111,8 @@ function requiredFeaturesSupported() {
       break;
     default:
       document.getElementById('bodyElement').innerHTML = "<h3>IndexedDB pages must be served via the http:// or https:// protocol - resolve this issue and try again.</h3>";
-      return false;}
-  // switch
+      return false;
+  } // switch
 
   if (!document.getElementById('fileSelector').files) {
     document.getElementById('bodyElement').innerHTML = "<h3>File API is not fully supported - upgrade your browser to the latest version.</h3>";
@@ -129,7 +135,7 @@ function requiredFeaturesSupported() {
     }
   } // if
 
-  if (!window.indexedDB.deleteDatabase) {// Not all implementations of IndexedDB support this method, thus we test for it here.
+  if (!window.indexedDB.deleteDatabase) { // Not all implementations of IndexedDB support this method, thus we test for it here.
     document.getElementById('bodyElement').innerHTML = "<h3>The required version of IndexedDB is not supported.</h3>";
     return false;
   }
@@ -170,9 +176,9 @@ function openDB() {
   try {
     var openRequest = window.indexedDB.open(dbGlobals.name, dbGlobals.version); // Also passing an optional version number for this database.
 
-    openRequest.onerror = function (evt) {
+    openRequest.onerror = function(evt) {
       console.log("openRequest.onerror fired in openDB() - error: " + (evt.target.error ? evt.target.error : evt.target.errorCode));
-    }; // Some browsers may only support the errorCode property.
+    } // Some browsers may only support the errorCode property.
     openRequest.onblocked = openDB_onblocked; // Called if the database is opened via another process, or similar.
     openRequest.onupgradeneeded = openDB_onupgradeneeded; // Called if the database doesn't exist or the database version values don't match.
     openRequest.onsuccess = openDB_onsuccess; // Attempts to open an existing database (that has a correctly matching version value).        
@@ -208,8 +214,8 @@ function openDB_onupgradeneeded(evt) {
   try {
     db.createObjectStore(dbGlobals.storeName, {
       keyPath: "ID",
-      autoIncrement: true });
-    // Create the object store such that each object in the store will be given an "ID" property that is auto-incremented monotonically. Thus, files of the same name can be stored in the database.
+      autoIncrement: true
+    }); // Create the object store such that each object in the store will be given an "ID" property that is auto-incremented monotonically. Thus, files of the same name can be stored in the database.
   } catch (ex) {
     console.log("Exception in openDB_onupgradeneeded() - " + ex.message);
     return;
@@ -254,34 +260,34 @@ function handleFileSelection(evt) {
   } // if
 
   try {
-    var transaction = db.transaction(dbGlobals.storeName, IDBTransaction.READ_WRITE ? IDBTransaction.READ_WRITE : 'readwrite'); // This is either successful or it throws an exception. Note that the ternary operator is for browsers that only support the READ_WRITE value.
+    var transaction = db.transaction(dbGlobals.storeName, (IDBTransaction.READ_WRITE ? IDBTransaction.READ_WRITE : 'readwrite')); // This is either successful or it throws an exception. Note that the ternary operator is for browsers that only support the READ_WRITE value.
   } // try
   catch (ex) {
     console.log("db.transaction exception in handleFileSelection() - " + ex.message);
     return;
   } // catch
 
-  transaction.onerror = function (evt) {
+  transaction.onerror = function(evt) {
     console.log("transaction.onerror fired in handleFileSelection() - error code: " + (evt.target.error ? evt.target.error : evt.target.errorCode));
-  };
-  transaction.onabort = function () {
+  }
+  transaction.onabort = function() {
     console.log("transaction.onabort fired in handleFileSelection()");
-  };
-  transaction.oncomplete = function () {
+  }
+  transaction.oncomplete = function() {
     console.log("transaction.oncomplete fired in handleFileSelection()");
-  };
+  }
 
   try {
     var objectStore = transaction.objectStore(dbGlobals.storeName); // Note that multiple put()'s can occur per transaction.
 
     for (var i = 0, file; file = files[i]; i++) {
       var putRequest = objectStore.put(file); // The put() method will update an existing record, whereas the add() method won't.
-      putRequest.onsuccess = function () {
+      putRequest.onsuccess = function() {
         dbGlobals.empty = false;
-      }; // There's at least one object in the database's object store. This info (i.e., dbGlobals.empty) is used in displayDB().
-      putRequest.onerror = function (evt) {
+      } // There's at least one object in the database's object store. This info (i.e., dbGlobals.empty) is used in displayDB().
+      putRequest.onerror = function(evt) {
         console.log("putRequest.onerror fired in handleFileSelection() - error code: " + (evt.target.error ? evt.target.error : evt.target.errorCode));
-      };
+      }
     } // for            
   } // try
   catch (ex) {
@@ -324,7 +330,7 @@ function displayDB() {
   } // if
 
   try {
-    var transaction = db.transaction(dbGlobals.storeName, IDBTransaction.READ_ONLY ? IDBTransaction.READ_ONLY : 'readonly'); // This is either successful or it throws an exception. Note that the ternary operator is for browsers that only support the READ_ONLY value.
+    var transaction = db.transaction(dbGlobals.storeName, (IDBTransaction.READ_ONLY ? IDBTransaction.READ_ONLY : 'readonly')); // This is either successful or it throws an exception. Note that the ternary operator is for browsers that only support the READ_ONLY value.
   } // try
   catch (ex) {
     console.log("db.transaction() exception in displayDB() - " + ex.message);
@@ -337,13 +343,13 @@ function displayDB() {
     try {
       var cursorRequest = objectStore.openCursor();
 
-      cursorRequest.onerror = function (evt) {
+      cursorRequest.onerror = function(evt) {
         console.log("cursorRequest.onerror fired in displayDB() - error code: " + (evt.target.error ? evt.target.error : evt.target.errorCode));
-      };
+      }
 
       var fileListHTML = "<p><strong>File(s) in database:</strong></p><ul style='margin: -0.5em 0 1em -1em;'>"; // Be aware that if the database is empty, this variable never gets used.
 
-      cursorRequest.onsuccess = function (evt) {
+      cursorRequest.onsuccess = function(evt) {
         console.log("cursorRequest.onsuccess fired in displayDB()");
 
         var cursor = evt.target.result; // Get an object from the object store.
@@ -362,7 +368,7 @@ function displayDB() {
         if (dbGlobals.empty) {
           displayMessage("<p>The database is empty &amp;ndash; there's nothing to display.</p>");
         }
-      }; // cursorRequest.onsuccess
+      } // cursorRequest.onsuccess
     } // inner try
     catch (innerException) {
       console.log("Inner try exception in displayDB() - " + innerException.message);
@@ -385,15 +391,15 @@ function deleteDB() {
 
     var deleteRequest = window.indexedDB.deleteDatabase(dbGlobals.name);
 
-    deleteRequest.onerror = function (evt) {
+    deleteRequest.onerror = function(evt) {
       console.log("deleteRequest.onerror fired in deleteDB() - " + (evt.target.error ? evt.target.error : evt.target.errorCode));
-    };
-    deleteRequest.onsuccess = function () {
+    }
+    deleteRequest.onsuccess = function() {
       dbGlobals.db = null;
       dbGlobals.empty = true;
       dbGlobals.message = "";
       displayMessage("<p>The database has been deleted.</p>");
-    }; // deleteRequest.onsuccess
+    } // deleteRequest.onsuccess
   } // try
   catch (ex) {
     console.log("Exception in deleteDB() - " + ex.message);
@@ -404,7 +410,7 @@ function deleteDB() {
 class ImageUpload extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { file: '', imagePreviewUrl: '' };
+    this.state = {file: '',imagePreviewUrl: ''};
   }
 
   _handleSubmit(e) {
@@ -422,61 +428,61 @@ class ImageUpload extends React.Component {
     reader.onloadend = () => {
       this.setState({
         file: file,
-        imagePreviewUrl: reader.result });
+        imagePreviewUrl: reader.result
+      });
+    }
 
-    };
-
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(file)
   }
 
   render() {
-    let { imagePreviewUrl } = this.state;
+    let {imagePreviewUrl} = this.state;
     let $imagePreview = null;
     if (imagePreviewUrl) {
-      $imagePreview = /*#__PURE__*/React.createElement("img", { src: imagePreviewUrl });
+      $imagePreview = (<img src={imagePreviewUrl} />);
     } else {
-      $imagePreview = /*#__PURE__*/React.createElement("div", { className: "previewText" }, "Please select a Map for Preview");
-
-
+      $imagePreview = (<div className="previewText">Please select a Map for Preview         
+          
+          </div>);
     }
 
-    return /*#__PURE__*/(
-      React.createElement("div", { className: "previewComponent" }, /*#__PURE__*/
-      React.createElement("form", { onSubmit: e => this._handleSubmit(e) }, /*#__PURE__*/
-      React.createElement("input", { className: "fileInput",
-        type: "file",
-        onChange: e => this._handleImageChange(e) })), /*#__PURE__*/
+    return (
+      <div className="previewComponent">
+        <form onSubmit={(e)=>this._handleSubmit(e)}>
+          <input className="fileInput" 
+            type="file" 
+            onChange={(e)=>this._handleImageChange(e)} />
+          
+          
 
-
-
-
-      React.createElement("div", { id: "white-bg", className: "imgPreview" },
-      $imagePreview)));
-
-
-
-  }}
-
-
-ReactDOM.render( /*#__PURE__*/React.createElement(ImageUpload, null), document.getElementById("mainApp"));
+        </form>
+        <div id="white-bg" className="imgPreview">
+          {$imagePreview}
+        </div>
+      </div>
+    )
+  }
+}
+  
+ReactDOM.render(<ImageUpload/>, document.getElementById("mainApp"));
 
 
 function drawGraph() {
-  var graphtrace = {
-    x: [document.getElementById('x-1').value, document.getElementById('x-2').value, document.getElementById('x-3').value, document.getElementById('x-4').value, document.getElementById('x-5').value, document.getElementById('x-6').value, document.getElementById('x-7').value, document.getElementById('x-8').value, document.getElementById('x-9').value, document.getElementById('x-10').value],
-    y: [document.getElementById('y-1').value, document.getElementById('y-2').value, document.getElementById('y-3').value, document.getElementById('y-4').value, document.getElementById('y-5').value, document.getElementById('y-6').value, document.getElementById('y-7').value, document.getElementById('y-8').value, document.getElementById('y-9').value, document.getElementById('y-10').value],
-    mode: 'lines+markers',
-    name: 'Blank Graph',
-    line: { shape: 'spline' },
-    connectgaps: true };
+            var graphtrace = {
+                x: [document.getElementById('x-1').value,document.getElementById('x-2').value,document.getElementById('x-3').value,document.getElementById('x-4').value,document.getElementById('x-5').value,document.getElementById('x-6').value,document.getElementById('x-7').value,document.getElementById('x-8').value,document.getElementById('x-9').value,document.getElementById('x-10').value],
+                y: [document.getElementById('y-1').value,document.getElementById('y-2').value,document.getElementById('y-3').value,document.getElementById('y-4').value,document.getElementById('y-5').value,document.getElementById('y-6').value,document.getElementById('y-7').value,document.getElementById('y-8').value,document.getElementById('y-9').value,document.getElementById('y-10').value],
+                mode: 'lines+markers',
+                name: 'Blank Graph',
+                line: {shape: 'spline'},
+                connectgaps: true
+            };
 
+            var graphdata = [graphtrace];
+            var graphlayout = {
+                xaxis: {title: document.getElementById('x-label').value, range: [document.getElementById('x-min').value, document.getElementById('x-max').value]},
+                yaxis: {title: document.getElementById('y-label').value, range: [document.getElementById('y-min').value, document.getElementById('y-max').value]}
+            };
 
-  var graphdata = [graphtrace];
-  var graphlayout = {
-    xaxis: { title: document.getElementById('x-label').value, range: [document.getElementById('x-min').value, document.getElementById('x-max').value] },
-    yaxis: { title: document.getElementById('y-label').value, range: [document.getElementById('y-min').value, document.getElementById('y-max').value] } };
-
-
-  Plotly.newPlot('blankGraph', graphdata, graphlayout);
-};
-drawGraph();
+            Plotly.newPlot('blankGraph', graphdata, graphlayout);
+        };
+        drawGraph();
